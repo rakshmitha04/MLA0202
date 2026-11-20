@@ -1,0 +1,70 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPkQtyXK7OBqpmj/DWLMgx+",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/rakshmitha04/MLA0202/blob/main/EXPERIMENTS/EXP%201/CODE\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "hnCtiGWpMNB9"
+      },
+      "outputs": [],
+      "source": [
+        "\n",
+        "# FIND-S Algorithm\n",
+        "\n",
+        "# Training dataset\n",
+        "training_data = [\n",
+        "    ['Sunny', 'Warm', 'Normal', 'Strong', 'Warm', 'Same', 'Yes'],\n",
+        "    ['Sunny', 'Warm', 'High', 'Strong', 'Warm', 'Same', 'Yes'],\n",
+        "    ['Rainy', 'Cold', 'High', 'Strong', 'Warm', 'Change', 'No'],\n",
+        "    ['Sunny', 'Warm', 'High', 'Strong', 'Cool', 'Change', 'Yes']\n",
+        "]\n",
+        "\n",
+        "# Initialize the most specific hypothesis\n",
+        "hypothesis = ['0', '0', '0', '0', '0', '0']\n",
+        "\n",
+        "print(\"Initial Hypothesis:\", hypothesis)\n",
+        "\n",
+        "# Apply FIND-S algorithm\n",
+        "for example in training_data:\n",
+        "    if example[-1] == 'Yes':\n",
+        "        for i in range(len(hypothesis)):\n",
+        "            if hypothesis[i] == '0':\n",
+        "                hypothesis[i] = example[i]\n",
+        "            elif hypothesis[i] != example[i]:\n",
+        "                hypothesis[i] = '?'\n",
+        "\n",
+        "        print(\"Updated Hypothesis:\", hypothesis)\n",
+        "\n",
+        "# Display final hypothesis\n",
+        "print(\"\\nFinal Most Specific Hypothesis:\")\n",
+        "print(hypothesis)\n"
+      ]
+    }
+  ]
+}
