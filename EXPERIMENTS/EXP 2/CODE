@@ -1,0 +1,89 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyM+ojMPL1qAEpP3gL5BqQzN",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/rakshmitha04/MLA0202/blob/main/EXPERIMENTS/EXP%202/CODE\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 161
+        },
+        "id": "OOrqx9-BTS3M",
+        "outputId": "7a0ae9a2-b046-446b-f35f-41993189ca2e"
+      },
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "SyntaxError",
+          "evalue": "invalid syntax (421977188.py, line 1)",
+          "traceback": [
+            "\u001b[0;36m  File \u001b[0;32m\"/tmp/ipykernel_3519/421977188.py\"\u001b[0;36m, line \u001b[0;32m1\u001b[0m\n\u001b[0;31m    TRAINING DATASET\u001b[0m\n\u001b[0m             ^\u001b[0m\n\u001b[0;31mSyntaxError\u001b[0m\u001b[0;31m:\u001b[0m invalid syntax\n"
+          ]
+        }
+      ],
+      "source": [
+        "TRAINING DATASET\n",
+        "\n",
+        "     Sky AirTemp Humidity    Wind Water Forecast EnjoySport\n",
+        "0  Sunny    Warm   Normal  Strong  Warm     Same        Yes\n",
+        "1  Sunny    Warm     High  Strong  Warm     Same        Yes\n",
+        "2  Rainy    Cold     High  Strong  Warm   Change         No\n",
+        "3  Sunny    Warm     High  Strong  Cool   Change        Yes\n",
+        "\n",
+        "Training Example: 1\n",
+        "Specific Boundary S:\n",
+        "[('Sunny', 'Warm', 'Normal', 'Strong', 'Warm', 'Same')]\n",
+        "\n",
+        "General Boundary G:\n",
+        "[('?', '?', '?', '?', '?', '?')]\n",
+        "\n",
+        "Training Example: 2\n",
+        "Specific Boundary S:\n",
+        "[('Sunny', 'Warm', '?', 'Strong', 'Warm', 'Same')]\n",
+        "\n",
+        "Training Example: 3\n",
+        "Specific Boundary S:\n",
+        "[('Sunny', 'Warm', '?', 'Strong', 'Warm', 'Same')]\n",
+        "\n",
+        "Training Example: 4\n",
+        "Specific Boundary S:\n",
+        "[('Sunny', 'Warm', '?', 'Strong', '?', '?')]\n",
+        "\n",
+        "FINAL SPECIFIC BOUNDARY (S)\n",
+        "('Sunny', 'Warm', '?', 'Strong', '?', '?')\n",
+        "\n",
+        "FINAL GENERAL BOUNDARY (G)\n",
+        "('Sunny', '?', '?', '?', '?', '?')\n",
+        "('?', 'Warm', '?', '?', '?', '?')\n",
+        "\n",
+        "CANDIDATE ELIMINATION COMPLETED SUCCESSFULLY"
+      ]
+    }
+  ]
+}
