@@ -1,0 +1,110 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPoWfhJ5i+zd4YPXis+Wmdc",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/rakshmitha04/MLA0202/blob/main/EXPERIMENTS/EXP%2010/CODE\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "yB76tkYcZQzf"
+      },
+      "outputs": [],
+      "source": [
+        "\n",
+        "import numpy as np\n",
+        "import matplotlib.pyplot as plt\n",
+        "\n",
+        "from sklearn.datasets import make_blobs\n",
+        "from sklearn.mixture import GaussianMixture\n",
+        "\n",
+        "# Generate sample dataset\n",
+        "X, y = make_blobs(\n",
+        "    n_samples=300,\n",
+        "    centers=3,\n",
+        "    cluster_std=1.0,\n",
+        "    random_state=42\n",
+        ")\n",
+        "\n",
+        "# Create Gaussian Mixture Model\n",
+        "em = GaussianMixture(\n",
+        "    n_components=3,\n",
+        "    random_state=42\n",
+        ")\n",
+        "\n",
+        "# Train the EM model\n",
+        "em.fit(X)\n",
+        "\n",
+        "# Predict cluster labels\n",
+        "labels = em.predict(X)\n",
+        "\n",
+        "# Display results\n",
+        "print(\"EXPECTATION MAXIMIZATION ALGORITHM\")\n",
+        "print(\"----------------------------------\")\n",
+        "print(\"Number of clusters:\", em.n_components)\n",
+        "print(\"Converged:\", em.converged_)\n",
+        "print(\"Number of iterations:\", em.n_iter_)\n",
+        "print(\"Log Likelihood:\", round(em.score(X), 4))\n",
+        "\n",
+        "print(\"\\nCluster Sizes:\")\n",
+        "for i in range(3):\n",
+        "    print(\"Cluster\", i + 1, \":\", np.sum(labels == i), \"data points\")\n",
+        "\n",
+        "# Get cluster centers\n",
+        "centers = em.means_\n",
+        "print(\"\\nCluster Centers:\")\n",
+        "print(np.round(centers, 2))\n",
+        "\n",
+        "# Plot clustering results\n",
+        "plt.figure(figsize=(8, 5))\n",
+        "\n",
+        "plt.scatter(\n",
+        "    X[:, 0],\n",
+        "    X[:, 1],\n",
+        "    c=labels,\n",
+        "    cmap=\"viridis\",\n",
+        "    s=40\n",
+        ")\n",
+        "\n",
+        "plt.scatter(\n",
+        "    centers[:, 0],\n",
+        "    centers[:, 1],\n",
+        "    color=\"red\",\n",
+        "    marker=\"X\",\n",
+        "    s=200,\n",
+        "    label=\"Cluster Centers\"\n",
+        ")\n",
+        "\n",
+        "plt.xlabel(\"Feature 1\")\n",
+        "plt.ylabel(\"Feature 2\")\n",
+        "plt.title(\"Expectation Maximization - GMM Clustering\")\n",
+        "plt.legend()\n",
+        "plt.grid(True)\n",
+        "plt.show()\n"
+      ]
+    }
+  ]
+}
